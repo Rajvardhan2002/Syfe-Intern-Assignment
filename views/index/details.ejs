@@ -1,0 +1,53 @@
+<%- include("../includes/head" ,  {pageTitle : "RJ Police"}) %>
+<link rel="stylesheet" href="/styles/details.css">
+</head>
+<body>
+    <%- include("../includes/header") %>
+    <%- include("../includes/sidebar") %>
+    <main>
+        <div class="detail-heading">
+            <h3><b>User Details</b></h3>
+        </div>
+    
+    
+        <section class="image-section">
+            <div class="image-div">
+                <img src="/green-apple-benefits.jpeg" alt="user image" srcset="">
+            </div>
+        </section>
+    
+    
+        <section class="detail-section">
+            <div class="div1 detail-div">
+                <div class="name-div">
+                    <p class="name-heading heading"><b>Name</b></p>
+                    <p class="name detail">Somil Puri</p>
+                </div>
+                <div class="number-div">
+                    <p class="number-heading heading"><b>Mobile Number</b></p>
+                    <p class="number detail">+91-8287860029</p>
+                </div>
+            </div>
+            <div class="div2 detail-div">
+                <div class="address-div">
+                    <p class="address-heading heading"><b>Address</b></p>
+                    <p class="address detail">Room Number 127,
+                        Hostel H SIRPUR,
+                        NIT Raipur Chattisgarh,492010</p>
+                </div>
+                <div class="account-number-div">
+                    <p class="account-number-heading heading"><b>Account Number</b></p>
+                    <p class="account-number detail">6094085698357</p>
+                </div>
+            </div>
+        </section>
+    
+    
+        <section class="view-transaction-section">
+            <div class="view-transaction-div">
+                <a href="/detail-transactions" target="_blank" rel="noopener noreferrer" class="view-transaction-link">View Transactions</a>
+            </div>
+        </section>
+    </main>
+    
+<%- include("../includes/footer") %>

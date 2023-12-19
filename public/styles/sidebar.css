@@ -1,0 +1,60 @@
+.sidebar {
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    top:0;
+    background: #042331;
+    transform: translateX(0);
+    transition: all .8s ease;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+#check{
+    display: none;
+}
+
+label #btn{
+    position: absolute;
+    cursor: pointer;
+    left: 40px;
+    top: 20px;
+    font-size: 35px;
+    transition: all 1s ease;
+}
+#check:checked ~ .sidebar{
+    left:0px;
+
+}
+#check:checked ~ main{
+    transition: all 0.8s ease;
+    width: calc(100% - 250px);
+}
+#check:checked ~ label #btn{
+    left:290px;
+    transition: all 1s ease;
+}

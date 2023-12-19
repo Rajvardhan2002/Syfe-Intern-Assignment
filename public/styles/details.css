@@ -130,7 +130,7 @@ main {
     user-select: none;
 }
 
-.sidebar ul a {
+.sidebar ul a, .logout-btn {
     display: block;
     height: 100%;
     width: 100%;

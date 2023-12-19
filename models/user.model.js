@@ -11,6 +11,14 @@ class User {
         this.ifsc = ifsc;
     }
 
+    getUserWithSameEmail() {
+      return db.getDb().collection('users').findOne({email : this.email});
+    }
+
+    hasMatchingPassword(hashedPassword){
+      return bcrypt.compare(this.password,hashedPassword);
+    }
+
     async signup() {
         const hashedPassword = await bcrypt.hash(this.password, 12);
         // let result = db.collection('users');

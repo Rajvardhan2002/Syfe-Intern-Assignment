@@ -4,7 +4,7 @@ function getDetails(req,res){
 
 /////shows prediction form
 function getPrediction(req,res){
-    res.render("index/predictform");
+    res.render("index/predictForm"); 
 }
 
 function getTransactions(req,res){

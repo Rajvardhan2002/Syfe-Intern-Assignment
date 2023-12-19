@@ -103,7 +103,8 @@
     color: black;
     cursor: pointer;
 }
-main{
+
+main {
     transition: all 1s ease;
 }
 
@@ -139,8 +140,13 @@ main{
     padding-left: 40px;
     box-sizing: border-box;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
+ul li a:hover{
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
 .sidebar ul a i {
     margin-right: 16px;
 }
@@ -163,7 +169,8 @@ label #btn {
     left: 0px;
 
 }
-#check:checked~ main {
+
+#check:checked~main {
     width: calc(100% - 250px);
     margin-left: 250px;
     transition: all 1s ease;
@@ -174,6 +181,11 @@ label #btn {
 #check:checked~label #btn {
     left: 290px;
     transition: all 1s ease;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
 }
 
 /* sidebar css ends */

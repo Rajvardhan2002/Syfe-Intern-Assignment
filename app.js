@@ -13,4 +13,4 @@ const authRoutes = require("./routes/auth.routes");
 app.use(authRoutes);
 app.use(homeRoutes);
 
-app.listen(3000);
+app.listen(3000,()=>{console.log("Server started on port 3000");});

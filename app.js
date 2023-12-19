@@ -34,7 +34,7 @@ db.connectToDatabase()
     const x3 =+ category;
     const domain=req.body.pymt;
     const x4 =+domain;
-    const type=req.body.type;
+    const type=req.body.card;
     const x5 =+type;
 
     const atm = 65.69;
@@ -44,7 +44,7 @@ db.connectToDatabase()
     const gsdid = 270.541;
     
     const prediction = loadModelAndPredict(x1,x2,x3,x4,x5,atm,gma,gsd,gmaid,gsdid);
-    // console.log(prediction);
+    console.log("Prediction is:- "+prediction);
 
 })
     app.listen(3000);

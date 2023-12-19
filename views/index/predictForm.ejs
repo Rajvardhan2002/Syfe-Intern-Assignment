@@ -8,32 +8,32 @@
         <%- include("../includes/sidebar") %>
         <main>
             <h1>Fraud Detection Using Deep Learning</h1>
-            <form action="" method="POST">
+            <form action="/prediction1" method="POST">
                 <section>
                   <ul>
                     <li>
-                      <label for="firstname">Name</label>
-                      <input type="text" name="name" id="firstname" required />
+                      <label for="transaction_id">Transaction ID</label>
+                      <input type="number" name="transaction_id" id="transaction_id" required />
                     </li>
                     <li>
-                      <label for="email">E-Mail</label>
-                      <input type="email" name="email" id="email" required />
+                      <label for="category">Merchant Category</label>
+                      <input type="number" name="category" id="category" required />
                     </li>
                     <li>
                         <label for="card number">Card Number</label>
-                        <input type="number" name="card" id="card number" max="999999999999" required />
+                        <input type="number" name="cardnum" id="card number" max="999999999999" required />
                     </li>
                     <li>
                       <label for="amt">Amount</label>
                       <input type="number" name="amount" id="amt" required />
                     </li>
                     <li>
-                        <label for="cvc">CVV</label>
-                        <input type="number" name="cvV" id="cvc" max="999" required  />
+                        <label for="pymt">Payment Domain</label>
+                        <input type="number" name="pymt" id="pymt" max="999" required  />
                     </li>
                     <li>
-                        <label for="exp">Exp. Date</label>
-                        <input type="date" name="exp" id="exp" required />
+                        <label for="card">Card Type</label>
+                        <input type="number" name="card" id="Card Type" required />
                     </li>
                   </ul>
                 </section>

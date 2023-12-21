@@ -9,6 +9,7 @@ router.get("/details", homeController.getDetails);
 ///shows prediction form
 router.get("/predictTransactions",homeController.getPrediction);
 
+//////past transactions of user
 router.get("/detail-transactions" , homeController.getTransactions);
 
 

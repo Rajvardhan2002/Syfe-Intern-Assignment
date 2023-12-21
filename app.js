@@ -17,7 +17,15 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:false}));
-app.use(bodyParser.urlencoded({extended: true}));
+
+/////csrf needs sessions to work properly
+const sessionConfig = createSessionConfig();
+app.use(expressSession(sessionConfig));
+
+app.use(csrf());////generates tokens and check for incoming tokens and validate them
+app.use(addCsrfTokenMiddleware);////this one only distributes the tokens to our middlewares
+
+app.use(checkAuthStatusMiddleware);////checking whether user is login or not
 
 const homeRoutes = require("./routes/home.routes");
 const authRoutes = require("./routes/auth.routes");
@@ -59,10 +67,3 @@ db.connectToDatabase()
     console.log("Failed to connect to the database!");
     console.log(error);
   });
-
-
-
-
-
-
-

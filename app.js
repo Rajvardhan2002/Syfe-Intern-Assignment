@@ -30,7 +30,7 @@ app.use(checkAuthStatusMiddleware);////checking whether user is login or not
 
 const homeRoutes = require("./routes/home.routes");
 const authRoutes = require("./routes/auth.routes");
-const loadModelAndPredict = require("./util/model_loader");
+// const loadModelAndPredict = require("./util/model_loader");
 
 app.use(authRoutes);
 app.use(protectRoutesMiddleware);

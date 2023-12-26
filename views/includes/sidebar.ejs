@@ -11,10 +11,10 @@
         <li><a href="/predictTransactions"><i class="fa-solid fa-star"></i>Predict Fraud</a></li>
         <% if(locals.isAuth) { %>
             <li class="logout">
-                <form action="/logout" method="POST">
+                <form action="/logout" method="POST" class="logout-form">
                     <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                     <button class="logout-btn" type="submit">
-                        <i class="fa-solid fa-right-from-bracket">Logout</i>
+                        <i class="fa-solid fa-right-from-bracket"></i>Logout
                     </button>
                 </form>    
             </li>

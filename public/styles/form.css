@@ -2,6 +2,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: rgb(233, 243, 244);
 }
+
 h1 {
   margin-top: 2rem;
   text-align: center;
@@ -63,4 +64,21 @@ button {
   background-color: rgb(186, 199, 205);
   border-color: rgb(79, 97, 104);
   color: rgb(58, 57, 57);
+}
+.alert {
+  border-radius: 4px;
+  background-color:  rgb(255, 192, 180);
+  color: rgb(199, 51, 15);
+  padding: 1rem;
+  text-align: center;
+}
+
+.alert h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.alert p {
+  margin: 0.5rem 0;
 }

@@ -12,5 +12,7 @@ router.get("/predictTransactions",homeController.getPrediction);
 //////past transactions of user
 router.get("/detail-transactions" , homeController.getTransactions);
 
+router.post("/predict-transaction",homeController.predictTransactionsController);
+
 
 module.exports = router;

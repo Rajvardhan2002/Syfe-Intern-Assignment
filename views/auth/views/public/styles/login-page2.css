@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&family=Ubuntu&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  background-color: rgb(43, 107, 204); /* Blue background for body */
+}
+
+.container {
+  display: flex;
+}
+
+.img {
+  max-width: 60%;
+  width: 60%;
+}
+
+.img img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.form-div {
+  max-width: 40%;
+  width: 40%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically on smaller screens */
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.form-container {
+  width: 90%;
+  margin: auto;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 20px;
+  background-color: white; /* White background for form container */
+}
+
+.form-container h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.email-div,
+.password-div,
+.confirm-password-div,
+.phone-div,
+.account-div {
+  margin-top: 15px;
+}
+
+label,
+input {
+  display: block;
+}
+
+input {
+  height: 35px;
+  width: 100%; /* Use full width on smaller screens */
+  margin-top: 5px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  background-color: lightgray;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+.btn {
+  width: 100%; /* Use full width on smaller screens */
+  font-size: 16px;
+}
+
+.input-grp {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .img {
+    display: none; /* Hide image on mobile devices */
+  }
+
+  .form-div {
+    width: 100%; /* Make form full width */
+    margin-top: 20px; /* Add spacing above the form */
+  }
+
+  .form-container {
+    height: auto; /* Remove fixed height */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}

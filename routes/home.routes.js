@@ -14,5 +14,7 @@ router.get("/detail-transactions" , homeController.getTransactions);
 
 router.post("/predict-transaction",homeController.predictTransactionsController);
 
+router.get("/newlogin",homeController.newLogin);
+
 
 module.exports = router;

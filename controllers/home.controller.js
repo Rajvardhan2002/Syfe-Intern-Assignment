@@ -13,6 +13,10 @@ function getTransactions(req,res){
     res.render("index/transaction");
 } 
 
+function newLogin(req,res){
+    res.render("index/new-login");
+}
+
 async function predictTransactionsController(req,res){
 
     try {
@@ -59,5 +63,6 @@ module.exports = {
     getPrediction : getPrediction,
     getDetails : getDetails,
     getTransactions: getTransactions,
-    predictTransactionsController:predictTransactionsController
+    predictTransactionsController:predictTransactionsController,
+    newLogin:newLogin
 }

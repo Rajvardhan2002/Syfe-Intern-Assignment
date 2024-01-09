@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/login-page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>Create Account Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-div">
+        <div class="form-container form-container-signup">
+          <h1>Create a new account</h1>
+          <div class="form-signup form">
+            <form action="" method="post">
+                <div class="name-div">
+                    <label for="name"
+                      >Full Name<span style="color: red">*</span></label
+                    >
+                    <div class="input-grp">
+                      <i class="fa-solid fa-user  icon"></i
+                      ><input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="John Doe"
+                        required
+                      />
+                    </div>
+                  </div>
+              <div class="email-div">
+                <label for="email"
+                  >Email Address<span style="color: red">*</span></label
+                >
+                <div class="input-grp">
+                  <i class="fa-solid fa-envelope email-icon icon"></i
+                  ><input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="your@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="password-div">
+                <label for="password"
+                  >Password<span style="color: red">*</span></label
+                >
+                <div class="input-grp">
+                  <i class="fa-solid fa-lock password-icon icon"></i>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter Your Password"
+                    required
+                  />
+                </div>
+                
+              </div>
+              <div class="confirm-password-div">
+                <label for="confirm-password"
+                  >Confirm Password<span style="color: red">*</span></label
+                >
+                <div class="input-grp">
+                  <i class="fa-solid fa-lock password-icon icon"></i>
+                  <input
+                    type="password"
+                    name="confirm-password"
+                    id="confirm-password"
+                    placeholder="Enter Your Password Again"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="phone-div">
+                <label for="phone"
+                  >Mobile Number<span style="color: red">*</span></label
+                >
+                <div class="input-grp">
+                  <i class="fa-solid fa-phone password-icon icon"></i>
+                  <input
+                    type="text"
+                    name="number"
+                    id="phone"
+                    placeholder="Enter your number with country code"
+                    required
+                    pattern="[+][9][1][0-9]"
+                  />
+                </div>
+              </div>
+              <div class="account-div">
+                <label for="account"
+                  >Account Number<span style="color: red">*</span></label
+                >
+                <div class="input-grp">
+                  <i class="fa-solid fa-piggy-bank password-icon icon"></i>
+                  <input
+                    type="text"
+                    name="account"
+                    id="account"
+                    placeholder="Enter your account number"
+                    required
+                    
+                  />
+                </div>
+              </div>
+        
+              <button type="submit" class="btn">Create Account</button>
+            </form>
+        </div>
+        <div class="login-link extra-link"><p>Login Instead? <a href="#" class="login-link link">Login</a></p></div>
+        </div>
+      </div>
+      <div class="img">
+        <img src="images/background2.jpg" alt="" srcset="" class="bg-image" />
+      </div>
+    </div>
+  </body>
+</html>

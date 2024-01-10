@@ -29,7 +29,7 @@ class User {
       return bcrypt.compare(this.password,hashedPassword);
     }
   
-
+    
     async signup() {
         const hashedPassword = await bcrypt.hash(this.password, 12);
         // let result = db.collection('users');

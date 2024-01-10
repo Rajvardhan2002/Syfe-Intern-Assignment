@@ -1,49 +1,146 @@
 <%- include("../includes/head" , {pageTitle : "Signup"}) %>
-<link rel="stylesheet" href="/styles/form.css">
+<link rel="stylesheet" href="/styles/login-page.css">
 </head>
 <body>
-    <main>
-        <h1>Create New Account</h1>
-        <form action="/signup" method="POST">
-            <% if (inputData.errorMessage) { %>
-                <section class="alert">
-                   <h2>Invalid input</h2>
-                   <p><%= inputData.errorMessage %></p>
-                </section>
-            <% } %>
-            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-            <p>
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="<%= inputData.password %>" minlength="6" required>
-            </p>
-            <p>
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm" value="<%= inputData.confirm %>" minlength="6" required>
-            </p>
-            <hr>
-            <p>
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" value="<%= inputData.name %>" required>
-            </p>
-            <p>
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" value="<%= inputData.address %>" required>
-            </p>
-            <p>
-                <label for="phone">Phone Number</label>
-                <input type="number" id="phone" name="phone" value="<%= inputData.phone %>" required>
-            </p>
-            <p>
-                <label for="account">Account Number</label>
-                <input type="number" id="account" name="account" value="<%= inputData.account %>" min="000000000000" max="999999999999" required>
-            </p>
-            <button class="submit-btn">Create Account</button>
-            <p id="switch-from"><a href="/login">Login Instead</a></p>
-        </form>
-    </main>
+         <div class="container">
+            <div class="form-div">
+              <div class="form-container form-container-signup">
+                <h1>Create a new account</h1>
+                <div class="form-signup form">
+                  <form action="/signup" method="POST">
+                      <% if (inputData.errorMessage) { %>
+                          <section class="alert">
+                             <h2>Invalid input</h2>
+                             <p><%= inputData.errorMessage %></p>
+                          </section>
+                      <% } %>
+                      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                      <div class="name-div">
+                          <label for="name"
+                            >Full Name<span style="color: red">*</span></label
+                          >
+                          <div class="input-grp">
+                            <i class="fa-solid fa-user  icon"></i
+                            ><input
+                              type="text"
+                              name="name"
+                              id="name"
+                              placeholder="John Doe"
+                              value="<%= inputData.name %>"
+                              required
+                            />
+                          </div>
+                        </div>
+                    <div class="email-div">
+                      <label for="email"
+                        >Email Address<span style="color: red">*</span></label
+                      >
+                      <div class="input-grp">
+                        <i class="fa-solid fa-envelope email-icon icon"></i
+                        ><input
+                          type="email"
+                          name="email"
+                          id="email"
+                          placeholder="your@example.com"
+                          value="<%= inputData.email %>"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="password-div">
+                      <label for="password"
+                        >Password<span style="color: red">*</span></label
+                      >
+                      <div class="input-grp">
+                        <i class="fa-solid fa-lock password-icon icon"></i>
+                        <input
+                          type="password"
+                          name="password"
+                          value="<%= inputData.password %>"
+                          id="password"
+                          placeholder="Enter Your Password"
+                          minlength="6"
+                          required
+                        />
+                      </div>
+                      
+                    </div>
+                    <div class="confirm-password-div">
+                      <label for="confirm-password"
+                        >Confirm Password<span style="color: red">*</span></label
+                      >
+                      <div class="input-grp">
+                        <i class="fa-solid fa-lock password-icon icon"></i>
+                        <input
+                          type="password"
+                          name="confirm"
+                          value="<%= inputData.confirm %>"
+                          id="confirm-password"
+                          placeholder="Enter Your Password Again"
+                          minlength="6"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="phone-div">
+                      <label for="phone"
+                        >Mobile Number<span style="color: red">*</span></label
+                      >
+                      <div class="input-grp">
+                        <i class="fa-solid fa-phone password-icon icon"></i>
+                        <input
+                          type="text"
+                          name="phone" value="<%= inputData.phone %>"
+                          id="phone"
+                          placeholder="Enter your number with country code"
+                          required
+                          
+                        />
+                      </div>
+                    </div>
+                    <div class="account-div">
+                      <label for="account"
+                        >Account Number<span style="color: red">*</span></label
+                      >
+                      <div class="input-grp">
+                        <i class="fa-solid fa-piggy-bank password-icon icon"></i>
+                        <input
+                          type="text"
+                          name="account" value="<%= inputData.account %>" min="000000000000" max="999999999999"
+                          id="account"
+                          placeholder="Enter your account number"
+                          required
+                          
+                        />
+                      </div>
+                    </div>
+                    <div class="address-div">
+                        <label for="address"
+                          >Address<span style="color: red">*</span></label
+                        >
+                        <div class="input-grp">
+                          <i class="fa-solid fa-lock password-icon icon"></i>
+                          <input
+                            type="text"
+                            name="address"
+                            id="address"
+                            placeholder="Enter Your Address"
+                            value="<%= inputData.address %>"
+                            required
+                          />
+                        </div>
+                      </div>
+              
+                    <button type="submit" class="btn">Create Account</button>
+                  </form>
+              </div>
+              <div class="login-link extra-link"><p><a href="/login" class="login-link link">Login Instead</a></p></div>
+              </div>
+            </div>
+            <div class="img">
+              <img src="/background2.jpg" alt="" srcset="" class="bg-image" />
+            </div>
+        </div>
+    
 </body>
 </html>

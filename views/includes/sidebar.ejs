@@ -1,25 +1,40 @@
 <!-- sidebar code starts -->
-<input type="checkbox" id="check">
+<input type="checkbox" id="check" onclick="toggleSidebar()" />
 <label for="check">
-    <i class="fas fa-bars" id="btn"></i>
+  <!-- <i class="fas fa-bars" id="btn"></i> -->
+  <div class="bar">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </div>
 </label>
 <div class="sidebar">
-    <header>Financial Application</header>
-    <ul>
-        <li><a href="/details"><i class="fa-solid fa-house-user"></i>Home</a></li>
-        <li><a href="/transactions"><i class="fa-solid fa-money-bills"></i>Transactions</a></li>
-        <li><a href="/predictTransactions"><i class="fa-solid fa-star"></i>Predict Fraud</a></li>
-        <% if(locals.isAuth) { %>
-            <li class="logout">
-                <form action="/logout" method="POST" class="logout-form">
-                    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-                    <button class="logout-btn" type="submit">
-                        <i class="fa-solid fa-right-from-bracket"></i>Logout
-                    </button>
-                </form>    
-            </li>
-        <% } %>
-    </ul>
+  <header>Financial Application</header>
+  <ul>
+    <li>
+      <a href="/details"><i class="fa-solid fa-house-user"></i>Home</a>
+    </li>
+    <li>
+      <a href="/transactions"
+        ><i class="fa-solid fa-money-bills"></i>Transactions</a
+      >
+    </li>
+    <li>
+      <a href="/predictTransactions"
+        ><i class="fa-solid fa-star"></i>Predict Fraud</a
+      >
+    </li>
+    <% if(locals.isAuth) { %>
+    <li class="logout">
+      <form action="/logout" method="POST" class="logout-form">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <button class="logout-btn" type="submit">
+          <i class="fa-solid fa-right-from-bracket"></i>Logout
+        </button>
+      </form>
+    </li>
+    <% } %>
+  </ul>
 </div>
 
 <!-- sidebar code ends -->

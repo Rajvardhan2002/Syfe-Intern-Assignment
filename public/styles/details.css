@@ -1,19 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&family=Ubuntu&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-size: 20px; */
+  font-family: "Ubuntu", sans-serif;
 }
 
-.image-div {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(43, 107, 204);
+}
+
+.main-container {
+  height: 90vh;
+  width: 90vw;
+  background-color: white;
+  user-select: none;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+  padding: 15px;
 }
 
 .image-div img {
-  height: 300px;
-  width: 300px;
+  width: 17.36vw;
+  height: 35vh;
+}
+
+.detail-section {
+  width: 100%;
+  padding: 15px;
 }
 
 .detail-heading {
@@ -22,7 +41,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-
   font-family: "Roboto", sans-serif;
 }
 
@@ -53,12 +71,19 @@
 }
 
 .heading {
-  margin-left: 20%;
+  /* font-size: min(1rem, 1.5vw); */
+  font-size: clamp(0.8rem, min(1rem, 1.5vw), 1rem);
 }
 
 .detail {
-  margin-left: 10%;
+  margin: 2%;
+  /* font-size: min(1rem, 1.5vw); */
+  font-size: clamp(0.8rem, min(1rem, 1.5vw), 1rem);
 }
+
+/* .address, .account-number{
+  margin:8%
+} */
 
 .address-div,
 .account-number-div {
@@ -69,21 +94,10 @@
   margin-bottom: 20px;
 }
 
-.account-number-div {
-  margin-top: 23px;
-}
-
 .address-div p,
 .account-number-div p {
   display: inline-block;
   font-family: "Roboto", sans-serif;
-}
-
-.address {
-  white-space: pre-line;
-  height: 70px;
-  margin-left: 7%;
-  margin-top: 20px;
 }
 
 .view-transaction-section {
@@ -104,103 +118,105 @@ main {
   transition: all 1s ease;
 }
 
-/* sidebar css starts */
-.sidebar {
-  position: fixed;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  top: 0;
-  background: #042331;
-  z-index: 9999;
-  transform: translateX(0);
-  transition: all 0.8s ease;
+.user-detail-container {
+  display: flex;
 }
 
-.sidebar header {
-  font-size: 22px;
-  color: white;
+.extra-buttons {
+  display: flex;
+  margin-top: 5%;
+  /* height: 20px; */
+}
+
+.change-password-btn,
+.view-transactions-btn {
   text-align: center;
-  line-height: 70px;
-  background: #063146;
-  user-select: none;
+  width: 50%;
 }
 
-.sidebar ul a {
-  display: block;
-  height: 100%;
-  width: 100%;
-  line-height: 65px;
-  font-size: 20px;
-  color: white;
-  padding-left: 40px;
-  box-sizing: border-box;
+/* .util-btn{
+  height: 20px;
+} */
+
+.util-btn a {
   text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-ul li a:hover {
-  transform: translateX(20px);
-  transition: all 0.3s ease;
-}
-.sidebar ul a i {
-  margin-right: 16px;
-}
-
-#check {
-  display: none;
-}
-
-label #btn {
-  position: absolute;
-  cursor: pointer;
-  left: 40px;
-  top: 20px;
-  font-size: 35px;
-  transition: all 1s ease;
-  z-index: 9999;
-}
-
-#check:checked ~ .sidebar {
-  left: 0px;
-}
-
-#check:checked ~ main {
-  width: calc(100% - 250px);
-  margin-left: 250px;
-  transition: all 1s ease;
-}
-
-#check:checked ~ label #btn {
-  left: 290px;
-  transition: all 1s ease;
-}
-
-.logout {
-  position: absolute;
-  bottom: 0;
-}
-.logout-form {
-  padding-left: 40px;
-  padding-bottom: 40px;
-}
-
-.logout-btn {
-  background: transparent;
-  font-size: 20px;
   color: white;
-  height: 100%;
+  padding: 15px;
+  background-color: rgb(43, 107, 204);
+  border-radius: 15px;
+  /* font-size: min(1rem, 1.5vw); */
+  font-size: clamp(0.8rem, min(1rem, 1.5vw), 1rem);
+}
+
+.transactions-section {
+  margin-top: 15px;
+}
+
+.transactions-section-heading {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: clamp(0.8rem, min(1rem, 1.5vw), 1rem);
+}
+
+.detail-table {
   width: 100%;
-  outline: none;
-  border: none;
-  
-  transition: all 0.3s ease;
+  border-collapse: collapse;
+  table-layout: auto;
 }
-.logout-btn:hover{
-    transform: translateX(20px);
-    transition: all 0.3s ease;
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
 }
-.logout-btn i {
-  margin-right: 16px;
+
+@media (max-width: 768px) {
+  /* .account-number-div, .address-div, .number-div, .name-div{
+    text-align: center;
+  } */
+
+  .image-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-detail-container {
+    flex-direction: column;
+  }
 }
-/* sidebar css ends */
+
+@media (max-width: 425px) {
+  .detail-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .div1,
+  .div2,
+  .extra-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .div2 {
+    margin-top: -1px;
+  }
+  .name-div,
+  .number-div,
+  .account-number-div,
+  .address-div,
+  .util-btn {
+    width: 100%;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .util-btn {
+    text-align: center;
+  }
+
+  .change-password-btn {
+    margin-bottom: 35px;
+  }
+}

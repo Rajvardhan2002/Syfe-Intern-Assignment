@@ -1,5 +1,7 @@
-function getDetails(req, res) {
-  res.render("index/details");
+async function getDetails(req, res) {
+  const receivedData = req.query;
+  // console.log("Received data:", receivedData);
+  res.render("index/details", { user: receivedData });
 }
 
 /////shows prediction form

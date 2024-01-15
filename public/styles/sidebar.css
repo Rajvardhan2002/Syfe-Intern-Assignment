@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&family=Ubuntu&display=swap");
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  background: #042331;
+  z-index: 9999;
+  transform: translateX(0);
+  transition: all 0.8s ease;
+}
+
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  background: #063146;
+  user-select: none;
+}
+
+.sidebar ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+ul li a:hover {
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+}
+.sidebar ul a i {
+  margin-right: 16px;
+}
+
+#check {
+  display: none;
+}
+
+label #btn {
+  position: absolute;
+  cursor: pointer;
+  left: 40px;
+  top: 20px;
+  font-size: 35px;
+  transition: all 1s ease;
+  z-index: 9999;
+}
+
+#check:checked ~ .sidebar {
+  left: 0px;
+  box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0.5);
+}
+
+#check:checked ~ main {
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  transition: all 1s ease;
+}
+
+#check:checked ~ label .bar {
+  left: 290px;
+  transition: all 1s ease;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+}
+.logout-form {
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+
+.logout-btn {
+  background: transparent;
+  font-size: 20px;
+  color: white;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+
+  transition: all 0.3s ease;
+}
+.logout-btn:hover {
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+}
+.logout-btn i {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.sidebar-open {
+  pointer-events: none;
+}
+
+.bar {
+  position: absolute;
+  cursor: pointer;
+  left: 20px;
+  top: 35px;
+  z-index: 99999;
+  transition: all 1s ease;
+}
+
+.bar .top {
+  display: block;
+  position: relative;
+  bottom: 6px;
+  height: 5px;
+  width: 38px;
+  background-color: white;
+  border-radius: 50px;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.bar .middle {
+  display: block;
+  position: relative;
+  height: 5px;
+  width: 38px;
+  background-color: white;
+  border-radius: 50px;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.bar .bottom {
+  display: block;
+  position: relative;
+  top: 6px;
+  height: 5px;
+  width: 38px;
+  background-color: white;
+  border-radius: 50px;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+#check:checked ~ label .bar .top {
+  transform: rotate(-45deg);
+  width: 38px;
+  transform-origin: right;
+}
+#check:checked ~ label .bar .bottom {
+  transform: rotate(45deg);
+  width: 38px;
+  transform-origin: right;
+  top: 10px;
+  box-shadow: none;
+}
+#check:checked ~ label .bar .middle {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+/* sidebar css ends */

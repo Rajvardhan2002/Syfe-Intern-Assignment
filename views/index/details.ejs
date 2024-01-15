@@ -1,51 +1,76 @@
 <%- include("../includes/head" ,  {pageTitle : "RJ Police"}) %>
 <link rel="stylesheet" href="/styles/details.css">
+<link rel="stylesheet" href="styles/sidebar.css" />
 </head>
+<!-- Sidebar extra functioning starts -->
+<script>
+    function toggleSidebar() {
+        const detailContainer = document.getElementById("user-details");
+        detailContainer.classList.toggle("sidebar-open");
+    }
+</script>
+<!-- Sidebar extra functioning ends -->
 <body>
     <%- include("../includes/sidebar") %>
-    <main>
+    <main class="main-container" id="user-details">
         <div class="detail-heading">
             <h3><b>User Details</b></h3>
         </div>
     
     
-        <section class="image-section">
-            <div class="image-div">
-                <img src="/green-apple-benefits.jpeg" alt="user image" srcset="">
-            </div>
-        </section>
-    
-    
-        <section class="detail-section">
-            <div class="div1 detail-div">
-                <div class="name-div">
-                    <p class="name-heading heading"><b>Name</b></p>
-                    <p class="name detail">Somil Puri</p>
+        <div class="user-detail-container">
+            <section class="image-section">
+                <div class="image-div">
+                    <img src="/dummy.jpg" alt="user image" srcset="" />
                 </div>
-                <div class="number-div">
-                    <p class="number-heading heading"><b>Mobile Number</b></p>
-                    <p class="number detail">+91-8287860029</p>
+            </section>
+
+            <section class="detail-section">
+                <div class="div1 detail-div">
+                    <div class="name-div">
+                        <p class="name-heading heading"><b>Name:</b></p>
+                        <p class="name detail"><%= user.fullname %></p>
+                    </div>
+                    <div class="number-div">
+                        <p class="number-heading heading"><b>Mobile Number:</b></p>
+                        <p class="number detail"><%= user.phone %></p>
+                    </div>
                 </div>
-            </div>
-            <div class="div2 detail-div">
-                <div class="address-div">
-                    <p class="address-heading heading"><b>Address</b></p>
-                    <p class="address detail">Room Number 127,
-                        Hostel H SIRPUR,
-                        NIT Raipur Chattisgarh,492010</p>
+                <div class="div2 detail-div">
+                    <div class="address-div">
+                        <p class="address-heading heading"><b>Address:</b></p>
+                        <p class="address detail"><%= user.address %></p>
+                    </div>
+                    <div class="account-number-div">
+                        <p class="account-number-heading heading">
+                            <b>Account Number:</b>
+                        </p>
+                        <p class="account-number detail"><%= user.accountNumber %></p>
+                    </div>
                 </div>
-                <div class="account-number-div">
-                    <p class="account-number-heading heading"><b>Account Number</b></p>
-                    <p class="account-number detail">6094085698357</p>
+                <div class="extra-buttons">
+                    <!-- <div class="change-password-btn util-btn">
+                        <a href="#">Change Password</a>
+                    </div> -->
+                    <div class="view-transactions-btn util-btn">
+                        <a href="/detail-transactions">View All Transactions</a>
+                    </div>
                 </div>
-            </div>
-        </section>
-    
-    
-        <section class="view-transaction-section">
-            <div class="view-transaction-div">
-                <a href="/detail-transactions" target="_blank" rel="noopener noreferrer" class="view-transaction-link">View Transactions</a>
-            </div>
+            </section>
+            
+        </div>
+        <section class="transactions-section">
+            <h3 class="transactions-section-heading">Your Last 5 Transaction</h3>
+                <table class="detail-table">
+                    <tr>
+                        <th>Sr.No.</th>
+                        <th>Date</th>
+                        <th>Transaction ID</th>
+                        <th>Transaction Type</th>
+                        <th>Amount</th>
+                        <th>Merchant</th>
+                    </tr>
+                </table>
         </section>
     </main>
 </body>

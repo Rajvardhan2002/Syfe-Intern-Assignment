@@ -5,18 +5,18 @@ const sessionFlash = require("../util/session_flashData");
 
 function getSignup(req, res) {
   let sessionData = sessionFlash.getSessionData(req);
-  if(!sessionData){
+  if (!sessionData) {
     sessionData = {
-    email : "",
-    password :'',
-    confirm :'',
-    name : '',
-    address : '',
-    account : '',
-    phone :'',
+      email: "",
+      password: "",
+      confirm: "",
+      name: "",
+      address: "",
+      account: "",
+      phone: "",
     };
   }
-  res.render("auth/signup" , {inputData : sessionData});
+  res.render("auth/signup", { inputData: sessionData });
 }
 
 ////form submission
@@ -59,8 +59,8 @@ async function signup(req, res, next) {
     req.body.password,
     req.body.name,
     req.body.account,
-    req.body.phone,
-    req.body.address
+    req.body.address,
+    req.body.phone
   );
 
   try {
@@ -89,13 +89,13 @@ async function signup(req, res, next) {
 ////shows login page
 function getLogin(req, res) {
   let sessionData = sessionFlash.getSessionData(req);
-  if(!sessionData){
+  if (!sessionData) {
     sessionData = {
-    email: " ",
-    password: '',
+      email: " ",
+      password: "",
     };
   }
-  res.render("auth/login",{inputData: sessionData});
+  res.render("auth/login", { inputData: sessionData });
 }
 
 ///////////////////////////////////////////handling login form post req
@@ -128,7 +128,10 @@ async function login(req, res, next) {
     return;
   }
   authUtil.createUserSession(req, existingUser, function () {
-    res.redirect("/details");
+    const dataToSend = { ...existingUser };
+    const queryParams = new URLSearchParams(dataToSend);
+    res.redirect(`/details?${queryParams.toString()}`);
+    // res.render("index/details", { user: existingUser });
   });
 }
 

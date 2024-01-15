@@ -182,6 +182,9 @@ input:-webkit-autofill:active {
 .alert p {
   margin: 0.5rem 0;
 }
+.input-textarea {
+  white-space: pre-wrap;
+}
 
 @media (max-width: 768px) {
   body {

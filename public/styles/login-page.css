@@ -186,10 +186,6 @@ input:-webkit-autofill:active {
   white-space: pre-wrap;
 }
 
-.input-textarea{
-  white-space: pre-wrap;
-}
-
 @media (max-width: 768px) {
   body {
     background-color: rgb(43, 107, 204);

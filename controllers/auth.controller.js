@@ -16,6 +16,7 @@ function getSignup(req, res) {
       phone: "",
     };
   }
+  // console.log(sessionData);
   res.render("auth/signup", { inputData: sessionData });
 }
 
@@ -128,10 +129,7 @@ async function login(req, res, next) {
     return;
   }
   authUtil.createUserSession(req, existingUser, function () {
-    const dataToSend = { ...existingUser };
-    const queryParams = new URLSearchParams(dataToSend);
-    res.redirect(`/details?${queryParams.toString()}`);
-    // res.render("index/details", { user: existingUser });
+    res.redirect("/details");
   });
 }
 

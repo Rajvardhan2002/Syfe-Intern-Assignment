@@ -67,7 +67,8 @@
             <h2>Fraud Message Detector</h2>
         </div>
         <div class="input-div">
-            <form action="">
+            <form action="/fraud" method="POST">
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                 <div class="message-heading-div">
                     <input type="text" name="message-heading" id="message-heading" class="message" placeholder="Enter Your Message Subject">
                 </div>

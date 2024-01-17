@@ -52,13 +52,16 @@
                     <div class="view-history-btn util-btn">
                         <a href="#">View History</a>
                     </div>
+                    <% if(tableArray.length>0) { %>
                     <div class="view-transactions-btn util-btn">
                         <a href="/detail-transactions">View All Transactions</a>
                     </div>
+                    <% } %>
                 </div>
             </section>
             
         </div>
+        <% if(tableArray.length>0) { %>
         <section class="transactions-section">
             <h3 class="transactions-section-heading">Your Last 5 Transaction</h3>
             <div class="table-div">
@@ -85,6 +88,7 @@
                 </table>
             </div>
         </section>
+        <% } %>
     </main>
 </body>
 </html>

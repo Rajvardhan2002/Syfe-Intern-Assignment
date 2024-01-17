@@ -15,7 +15,7 @@ async function getDetails(req, res, next) {
       .sort({ dateSort: -1 })
       .toArray();
 
-    // console.log(tableArray);
+    console.log(tableArray);
     res.render("index/details", { user: receivedData, tableArray: tableArray });
   } catch (error) {
     next(error);

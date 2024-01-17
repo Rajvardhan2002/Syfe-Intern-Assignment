@@ -85,13 +85,14 @@ textarea::placeholder {
 }
 .success {
   border-radius: 4px;
-  background-color: rgb(255, 192, 180);
+  background-color: rgb(180, 255, 180);
   color: rgb(15, 199, 15);
   padding: 1rem;
   text-align: center;
+  margin-top: 40px;
 }
 
-.message{
+.message {
   display: flex;
   justify-content: center;
   align-items: center;

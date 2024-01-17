@@ -63,7 +63,7 @@
         </div>
         <% if(tableArray.length>0) { %>
         <section class="transactions-section">
-            <h1 class="transactions-section-heading">Your Last 5 Transaction</h1>
+            <h1 class="transactions-section-heading">Your Last <%= Math.min(5,tableArray.length) %> Transaction</h1>
             <div class="table-div">
                 <table class="detail-table">
                     <tr>
@@ -74,16 +74,14 @@
                         <th>Amount</th>
                         <th>Merchant</th>
                     </tr>
-                    
-                    
-                    <% for(let i=1;i<=5;i++){ %>
+                    <% for(let i=1;i<=Math.min(5,tableArray.length);i++){ %>
                         <tr>
                             <td><%= i %></td>
-                            <td><%= tableArray[i].date %></td>
-                            <td><%= tableArray[i].transactionID %></td>
-                            <td><%= tableArray[i].transaction_type %></td>
-                            <td><%= tableArray[i].amount %></td>
-                            <td><%= tableArray[i].merchant %></td>
+                            <td><%= tableArray[i-1]?.date %></td>
+                            <td><%= tableArray[i-1]?.transactionID %></td>
+                            <td><%= tableArray[i-1]?.transaction_type %></td>
+                            <td><%= tableArray[i-1]?.amount %></td>
+                            <td><%= tableArray[i-1]?.merchant %></td>
                         </tr>
                     <% } %>
                 </table>

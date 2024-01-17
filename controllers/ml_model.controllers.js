@@ -5,7 +5,6 @@ const NLP = require("../models/nlpMsg.model");
 function getNLP(req, res) {
   const prediction = { errorMessage: "", num: 1010, subject: "", message: "" };
   res.render("index/messageNLP", { prediction: prediction });
-  // res.render("index/messageNLP");
 }
 
 /////sends a post request whenever nlp form is submitted

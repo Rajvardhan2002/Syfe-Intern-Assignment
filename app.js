@@ -29,20 +29,12 @@ app.use(checkAuthStatusMiddleware); //checking whether user is login or not
 
 const homeRoutes = require("./routes/home.routes");
 const authRoutes = require("./routes/auth.routes");
-<<<<<<< HEAD
 const mlRoutes = require("./routes/ml_model.routes");
-=======
-const apiRoutes = require("./routes/api.routes")
->>>>>>> 71a367d20f0db15bb3819fdd07e01aa688c2ae22
 
 app.use(authRoutes);
 app.use(protectRoutesMiddleware);
 app.use(homeRoutes);
-<<<<<<< HEAD
 app.use(mlRoutes);
-=======
-app.use(apiRoutes);
->>>>>>> 71a367d20f0db15bb3819fdd07e01aa688c2ae22
 
 app.use(errorHandlerMiddleware);
 

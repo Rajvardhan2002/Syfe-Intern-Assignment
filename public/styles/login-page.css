@@ -148,11 +148,7 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #000; /* Ensure text remains visible */
 }
 
-<<<<<<< HEAD
 textarea {
-=======
-textarea{
->>>>>>> 71a367d20f0db15bb3819fdd07e01aa688c2ae22
   resize: none;
   background-color: lightgray;
   font-size: clamp(0.8rem, 2.6vw, 1rem);
@@ -224,28 +220,17 @@ textarea{
   form {
     margin: 0px 10px 0px 10px;
   }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 71a367d20f0db15bb3819fdd07e01aa688c2ae22
   .form-container {
     background-color: white;
     padding-left: 10px;
     padding-right: 10px;
     width: 65%;
   }
-<<<<<<< HEAD
   input {
     width: calc(80% + 80px);
   }
   textarea {
-=======
-  input{
-    width: calc(80% + 80px);
-  }
-  textarea{
->>>>>>> 71a367d20f0db15bb3819fdd07e01aa688c2ae22
     width: 100%;
   }
 }

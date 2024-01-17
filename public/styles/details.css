@@ -126,14 +126,15 @@ main {
 .extra-buttons {
   display: flex;
   margin-top: 5%;
-  /* height: 20px; */
+  justify-content: space-around;
+  align-items: center;
 }
 
-.change-password-btn,
+/* .view-history-btn,
 .view-transactions-btn {
   text-align: center;
-  width: 100%;
-}
+  width: 50%;
+} */
 
 /* .util-btn{
   height: 20px;

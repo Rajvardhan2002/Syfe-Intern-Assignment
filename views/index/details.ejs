@@ -49,6 +49,9 @@
                     </div>
                 </div>
                 <div class="extra-buttons">
+                    <div class="view-history-btn util-btn">
+                        <a href="#">View History</a>
+                    </div>
                     <div class="view-transactions-btn util-btn">
                         <a href="/detail-transactions">View All Transactions</a>
                     </div>
@@ -56,7 +59,6 @@
             </section>
             
         </div>
-        <% if(tableArray.length>0) { %>
         <section class="transactions-section">
             <h3 class="transactions-section-heading">Your Last 5 Transaction</h3>
             <div class="table-div">
@@ -73,17 +75,16 @@
                     <% for(let i=1;i<=5;i++){ %>
                         <tr>
                             <td><%= i %></td>
-                            <td><%= tableArray[i]?.date %></td>
-                            <td><%= tableArray[i]?.transactionID %></td>
-                            <td><%= tableArray[i]?.transaction_type %></td>
-                            <td><%= tableArray[i]?.amount %></td>
-                            <td><%= tableArray[i]?.merchant %></td>
+                            <td><%= tableArray[i].date %></td>
+                            <td><%= tableArray[i].transactionID %></td>
+                            <td><%= tableArray[i].transaction_type %></td>
+                            <td><%= tableArray[i].amount %></td>
+                            <td><%= tableArray[i].merchant %></td>
                         </tr>
                     <% } %>
                 </table>
             </div>
         </section>
-        <% } %>
     </main>
 </body>
 </html>

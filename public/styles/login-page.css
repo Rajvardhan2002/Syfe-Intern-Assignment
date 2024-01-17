@@ -7,7 +7,6 @@
   font-family: "Roboto", sans-serif; */
   font-family: "Ubuntu", sans-serif;
 }
-
 .container {
   display: flex;
 }
@@ -35,7 +34,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .form-signup {
@@ -47,7 +46,7 @@
   width: 90%;
   margin: auto;
   margin-top: 10%;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +54,6 @@
 }
 
 .form-container-signup {
-  height: 650px;
   margin-top: 7%;
 }
 
@@ -68,6 +66,7 @@
   text-align: center;
   font-size: clamp(0.9rem, 2.5vw, 2.5rem);
   padding: 0px 15px 0px 15px;
+  margin-top: 5%;
 }
 
 form {
@@ -98,7 +97,7 @@ input {
 input {
   display: inline-block;
   height: 35px;
-  width: clamp(2rem, 25vw, 90rem);
+  width: clamp(0.8rem, 25vw, 90rem);
   margin-top: 5px;
   padding-left: 5px;
   outline: none;
@@ -149,8 +148,23 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #000; /* Ensure text remains visible */
 }
 
+textarea {
+  resize: none;
+  background-color: lightgray;
+  font-size: clamp(0.8rem, 2.6vw, 1rem);
+  border: none;
+  outline: none;
+  padding: 10px;
+  height: 70px;
+  width: clamp(0.8rem, 27.8vw, 95rem);
+  border-radius: 15px;
+  word-wrap: normal;
+  word-break: break-all;
+}
+
 .extra-link {
   margin-top: 20px;
+  margin-bottom: 5%;
 }
 
 .extra-link p {
@@ -206,10 +220,17 @@ input:-webkit-autofill:active {
   form {
     margin: 0px 10px 0px 10px;
   }
+
   .form-container {
     background-color: white;
     padding-left: 10px;
     padding-right: 10px;
     width: 65%;
+  }
+  input {
+    width: calc(80% + 80px);
+  }
+  textarea {
+    width: 100%;
   }
 }

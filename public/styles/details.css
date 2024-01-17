@@ -155,9 +155,8 @@ main {
 }
 
 .transactions-section-heading {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: clamp(0.8rem, min(1rem, 1.5vw), 1rem);
 }
 
 .table-div{

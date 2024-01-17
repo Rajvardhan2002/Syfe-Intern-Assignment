@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Oswald:wght@300&family=Roboto:ital,wght@0,400;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="styles/trxns.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+</head>
+
+<!-- Sidebar extra functioning starts -->
+<script>
+    function toggleSidebar() {
+        const detailContainer = document.getElementById("main-container-id");
+        detailContainer.classList.toggle("sidebar-open");
+    }
+</script>
+<!-- Sidebar extra functioning ends -->
+
+<body>
+    <sidebar>
+        <input type="checkbox" id="check" onclick="toggleSidebar()" />
+        <label for="check">
+            <!-- <i class="fas fa-bars" id="btn"></i> -->
+            <div class="bar">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </label>
+        <div class="sidebar">
+            <header>Financial Application</header>
+            <ul>
+                <li>
+                    <a href="/details"><i class="fa-solid fa-house-user"></i>Home</a>
+                </li>
+                <li>
+                    <a href="/transactions"><i class="fa-solid fa-money-bills"></i>Transactions</a>
+                </li>
+                <li>
+                    <a href="/predictTransactions"><i class="fa-solid fa-star"></i>Predict Fraud</a>
+                </li>
+
+                <li class="logout">
+                    <form action="/logout" method="POST" class="logout-form">
+                        <!-- <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" /> -->
+                        <button class="logout-btn" type="submit">
+                            <i class="fa-solid fa-right-from-bracket"></i>Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </sidebar>
+
+    <main class="main-container" id="main-container-id">
+        <div class="main-heading">
+            <h2>Fraud Transaction Detector</h2>
+        </div>
+        <div class="input-div">
+            <div class="form">
+                <form action="" method="post">
+                    <div class="amount-div">
+                        <label for="amount">Amount <span style="color: red">*</span></label>
+                        <div class="input-amount">
+                            <input type="text" name="amount-inp" id="amount" placeholder="Enter Amount" />
+                        </div>
+                    </div>
+                    <div class="category-div">
+                        <label for="category">Category <span style="color: red">*</span></label>
+                        <div class="input-category">
+                            <select name="category" id="category">
+                                <option value="" selected>Select a category</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Online">Online</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Food">Food</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="trxn-submitBtn-div">
+                        <button type="submit" class="trxnSubmit">Predict</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    const categorySelect = document.getElementById("category");
+
+    categorySelect.addEventListener("change", (event) => {
+        const defaultOption = categorySelect.querySelector("option[value='']");
+        if (event.target.value !== "") {
+            defaultOption.style.display = "none";
+        }
+    });
+</script>
+
+</html>

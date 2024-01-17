@@ -30,10 +30,17 @@
                     <button type="submit" class="predict-btn">Predict</button>
                 </div>
                 <% if (prediction.num===101) { %>
-                    <section class="alert">
+                    <% if(prediction.errorMessage==="Entered message is not a spam or fraud") { %> 
+                    <section class="success">
                        <h2>Result</h2>
                        <p><%= prediction.errorMessage %></p>
                     </section>
+                    <% }else { %>
+                        <section class="alert">
+                            <h2>Result</h2>
+                            <p><%= prediction.errorMessage %></p>
+                         </section>
+                    <% } %>
                 <% } %>
             </form>
         </div>

@@ -83,19 +83,37 @@ textarea::placeholder {
   font-size: clamp(1rem, min(1.2rem, 1.5vw), 1.2rem);
   padding: 10px;
 }
+.success {
+  border-radius: 4px;
+  background-color: rgb(255, 192, 180);
+  color: rgb(15, 199, 15);
+  padding: 1rem;
+  text-align: center;
+}
+
+.message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .alert {
   border-radius: 4px;
   background-color: rgb(255, 192, 180);
   color: rgb(199, 51, 15);
   padding: 1rem;
   text-align: center;
+  margin-top: 40px;
 }
-.alert h2 {
+
+.alert h2,
+.success h2 {
   font-size: 1rem;
   margin: 0.5rem 0;
   text-transform: uppercase;
 }
 
-.alert p {
+.alert p,
+.success p {
   margin: 0.5rem 0;
 }

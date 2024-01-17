@@ -29,10 +29,12 @@
                 <div class="predict-button">
                     <button type="submit" class="predict-btn">Predict</button>
                 </div>
+                <div class="message">
                 <% if (prediction.num===101) { %>
                     <section class="alert">
                        <h2>Result</h2>
                        <p><%= prediction.errorMessage %></p>
+                    </div>
                     </section>
                 <% } %>
             </form>

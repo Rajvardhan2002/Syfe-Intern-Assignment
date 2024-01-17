@@ -7,7 +7,15 @@ async function getDetails(req, res) {
     .getDb()
     .collection("users")
     .findOne({ _id: new ObjectId(req.session.uid) });
-  res.render("index/details", { user: receivedData });
+  const tableArray = await db
+    .getDb()
+    .collection("userTransactions")
+    .find({ userID: req.session.uid })
+    .sort({ dateSort: -1 })
+    .toArray();
+
+  // console.log(tableArray);
+  res.render("index/details", { user: receivedData, tableArray: tableArray });
 }
 
 module.exports = {

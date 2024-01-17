@@ -16,10 +16,16 @@ function getPrediction(req, res) {
 }
 
 function getTransactions(req, res) {
-  res.render("index/transaction");
+  res.render("index/transactions");
 }
+
+function predictSMS(req,res){
+  res.render("pages/fraud-sms-detector");
+}
+
 module.exports = {
   getPrediction: getPrediction,
   getDetails: getDetails,
   getTransactions: getTransactions,
+  predictSMS:predictSMS
 };

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&family=Ubuntu&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(43, 107, 204);
+}
+
+.main-container {
+  height: 90vh;
+  width: 90vw;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+  padding: 20px;
+}
+
+main {
+  transition: all 1s ease;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: clamp(0.5rem, min(1rem, 1.5vw), 1rem);
+}
+
+.sidebar-open {
+  user-select: none;
+  pointer-events: none;
+}
+
+.date-form-container {
+  margin-top: 30px;
+}
+
+.date-input {
+  display: flex;
+  justify-content: space-around;
+}
+
+.from-input,
+.to-input {
+  padding: 15px;
+}
+
+label,
+input {
+  font-size: clamp(0.5rem, min(1rem, 1.5vw), 1rem);
+}
+
+.trxn-btn {
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-size: clamp(0.5rem, min(1rem, 1.5vw), 1rem);
+  background-color: rgb(43, 107, 204);
+  color: white;
+  border-radius: 15px;
+}
+
+.reset-btn {
+  margin-left: 10px;
+}
+
+.chartjs-div {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  height: 300px;
+}
+
+.line-chart-div,
+.pie-chart-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+}
+
+.view-transactions-section {
+  margin-top: 15px;
+}
+
+.view-transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}

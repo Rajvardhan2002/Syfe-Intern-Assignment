@@ -11,7 +11,7 @@ function getNLP(req, res) {
 async function submitNLP(req, res, next) {
   try {
     const response = await axios.post(
-      "http://ec2-3-110-84-54.ap-south-1.compute.amazonaws.com:8080/predict-message",
+      "http://ec2-3-110-119-238.ap-south-1.compute.amazonaws.com:8080/predict-message",
       {
         text: req.body.sms,
       }
@@ -45,7 +45,19 @@ async function submitNLP(req, res, next) {
   }
 }
 
+function getPredictionForm(req, res) {}
+
+async function submitPredictForm(req, res, next) {
+  try {
+  } catch (error) {
+    console.log(error);
+    return next(error);
+  }
+}
+
 module.exports = {
   submitNLP: submitNLP,
   getNLP: getNLP,
+  getPredictionForm: getPredictionForm,
+  submitPredictForm: submitPredictForm,
 };

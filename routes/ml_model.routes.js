@@ -7,4 +7,10 @@ router.get("/detect-fraud-sms", mlModelController.getNLP);
 
 router.post("/detect-fraud-sms", mlModelController.submitNLP);
 
+//////shows prediction form
+router.get("/predict-fraud", mlModelController.getPredictionForm);
+
+/////handle prediction form submission
+router.post("/predict-fraud", mlModelController.submitPredictForm);
+
 module.exports = router;

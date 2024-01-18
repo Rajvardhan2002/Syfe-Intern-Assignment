@@ -1,0 +1,101 @@
+<%- include("../includes/head" ,  {pageTitle : "Predict Fraud"}) %>
+<link rel="stylesheet" href="/styles/predictForm.css" />
+    <link rel="stylesheet" href="/styles/sidebar.css" />
+  </head>
+
+  <!-- Sidebar extra functioning starts -->
+  <script>
+    function toggleSidebar() {
+      const detailContainer = document.getElementById("main-container-id");
+      detailContainer.classList.toggle("sidebar-open");
+    }
+  </script>
+  <!-- Sidebar extra functioning ends -->
+
+  <body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container" id="main-container-id">
+      <div class="main-heading">
+        <h2>Fraud Transaction Detector</h2>
+      </div>
+      <div class="input-div">
+        <div class="form">
+          <form action="/predict-fraud" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <div class="cust-div">
+              <label for="cust"
+                >Customer Id <span style="color: red">*</span></label
+              >
+              <div class="input-amount">
+                <input
+                  type="text"
+                  name="custId"
+                  id="cust"
+                  placeholder="Enter Customer ID"
+                  value="<%= prediction.custID %>"
+                />
+              </div>
+            </div>
+            <div class="amount-div">
+              <label for="amount"
+                >Amount <span style="color: red">*</span></label
+              >
+              <div class="input-amount">
+                <input
+                  type="text"
+                  name="amount"
+                  id="amount"
+                  placeholder="Enter Amount"
+                  value="<%= prediction.amount %>"
+                />
+              </div>
+            </div>
+            <div class="category-div">
+              <label for="category"
+                >Category <span style="color: red">*</span></label
+              >
+              <div class="input-category">
+                <select name="category" id="category">
+                  <option value="" selected>Select a category</option>
+                  <option value="1">Retail</option>
+                  <option value="2">Online</option>
+                  <option value="3">Travel</option>
+                  <option value="4">Food</option>
+                  <option value="5">Others</option>
+                </select>
+              </div>
+            </div>
+            <div class="trxn-submitBtn-div">
+              <button type="submit" class="trxnSubmit">Predict</button>
+            </div>
+          </form>
+          <div class="message">
+            <% if (prediction.num===101) { %>
+                <% if(prediction.errorMessage==="Your transaction is safe. You are good to go") { %> 
+                <section class="success">
+                   <h2>Result</h2>
+                   <p><%= prediction.errorMessage %></p>
+                </div>
+                </section>
+                <% }else { %>
+                    <section class="alert">
+                        <h2>Result</h2>
+                        <p><%= prediction.errorMessage %></p>
+                     </section>
+                <% } %>
+            <% } %>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    const categorySelect = document.getElementById("category");
+
+    categorySelect.addEventListener("change", (event) => {
+      const defaultOption = categorySelect.querySelector("option[value='']");
+      if (event.target.value !== "") {
+        defaultOption.style.display = "none";
+      }
+    });
+  </script>
+</html>

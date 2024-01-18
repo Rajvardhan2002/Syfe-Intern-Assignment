@@ -45,10 +45,50 @@ async function submitNLP(req, res, next) {
   }
 }
 
-function getPredictionForm(req, res) {}
+function getPredictionForm(req, res) {
+  const prediction = {
+    errorMessage: "",
+    num: 1010,
+    custID: "",
+    amount: "",
+    category: "",
+  };
+  res.render("index/predictFraudForm", { prediction: prediction });
+}
 
 async function submitPredictForm(req, res, next) {
   try {
+    const response = await axios.post(
+      "http://ec2-3-110-119-238.ap-south-1.compute.amazonaws.com:8080/predict-trans",
+      {
+        custID: +req.body.custId,
+        amount: +req.body.amount,
+        balance: +1500.0,
+        amount_mean: +400,
+        category: +req.body.category,
+        day: +new Date().getDate(),
+        month: +new Date().getMonth() + 1,
+        year: +new Date().getFullYear(),
+        amountPerMonth: +11000.0,
+        amountDif: -317.0,
+      }
+    );
+    console.log(response.data.prediction);
+    let ans;
+    if (response.data.prediction < 0.5) {
+      ans = "Your transaction is safe. You are good to go";
+    } else {
+      ans =
+        "Your transaction is marked SUSPICIOUS.Please make sure you are paying to a right merchant!";
+    }
+    const prediction = {
+      errorMessage: ans,
+      num: 101,
+      custID: req.body.custId,
+      amount: req.body.amount,
+      category: req.body.category,
+    };
+    res.render("index/predictFraudForm", { prediction: prediction });
   } catch (error) {
     console.log(error);
     return next(error);

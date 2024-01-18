@@ -40,7 +40,6 @@ main {
   margin-top: 50px;
 }
 
-
 .predict-btn {
   padding: 15px;
   font-size: clamp(1rem, min(1.2rem, 1.5vw), 1.2rem);
@@ -53,7 +52,7 @@ main {
   width: 150px;
 }
 
-.sidebar-open{
+.sidebar-open {
   user-select: none;
   pointer-events: none;
 }
@@ -64,8 +63,8 @@ main {
   font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-label{
-    margin-left: 5px;
+label {
+  margin-left: 5px;
 }
 
 label,
@@ -83,14 +82,14 @@ input {
   outline: none;
   border: none;
   background-color: lightgray;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 input::placeholder {
   font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-select{
+select {
   display: inline-block;
   height: 35px;
   width: clamp(2rem, 25vw, 90rem);
@@ -99,29 +98,28 @@ select{
   outline: none;
   border: none;
   background-color: lightgray;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
-select{
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+select {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-select option{
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+select option {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-option:checked{
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
-    
+option:checked {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-.trxn-submitBtn-div{
-    margin-top: 20px;
-    text-align: center;
+.trxn-submitBtn-div {
+  margin-top: 20px;
+  text-align: center;
 }
 
-.trxnSubmit{
-    padding: 15px;
+.trxnSubmit {
+  padding: 15px;
   font-size: clamp(1rem, min(1.2rem, 1.5vw), 1.2rem);
   background-color: rgb(43, 107, 204);
   color: white;
@@ -132,12 +130,41 @@ option:checked{
   width: 150px;
 }
 
-@media (max-width:768px) {
-    input{
-        width: calc(80% + 50px);
-    }
-    select{
-        width: calc(80% + 50px);
-    }
+.success {
+  border-radius: 4px;
+  background-color: rgb(180, 255, 180);
+  color: rgb(15, 199, 15);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 40px;
+}
 
+.alert {
+  border-radius: 4px;
+  background-color: rgb(255, 192, 180);
+  color: rgb(199, 51, 15);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.alert h2,
+.success h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.alert p,
+.success p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  input {
+    width: calc(80% + 50px);
+  }
+  select {
+    width: calc(80% + 50px);
+  }
 }

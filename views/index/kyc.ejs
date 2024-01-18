@@ -1,0 +1,61 @@
+<%- include("../includes/head" ,  {pageTitle : "Home"}) %>
+    <link rel="stylesheet" href="/styles/kyc.css" />
+    <link rel="stylesheet" href="/styles/sidebar.css" />
+
+    <!-- Sidebar extra functioning starts -->
+    <script>
+      function toggleSidebar() {
+        const detailContainer = document.getElementById("main-container-id");
+        detailContainer.classList.toggle("sidebar-open");
+      }
+    </script>
+    <!-- Sidebar extra functioning ends -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container" id="main-container-id">
+      <div class="main-heading">
+        <h1>Your Accounts</h1>
+      </div>
+
+      <section class="view-transactions-section">
+        <div class="table-div">
+        <table class="view-transaction-table">
+          <tr>
+            <th>Sr.No.</th>
+            <th>Account ID</th>
+            <th>Name</th>
+            <th>KYC Status</th>
+            <th>Home Branch</th>
+          </tr>
+          <% for(let i=1;i<=accountArray.length;i++){ %>
+            <% if(accountArray[i-1].KYCStatus==="Incomplete"){ %>
+              <tr style="color: rgb(237, 94, 65);">
+                  <td><%= i %></td>
+                  <td><%= accountArray[i-1]?.AccountID %></td>
+                  <td><%= accountArray[i-1]?.Name %></td>
+                  <td><%= accountArray[i-1]?.KYCStatus %></td>
+                  <td><%= accountArray[i-1]?.HomeBranch %></td>
+              </tr>
+            <% }else{ %>
+              <tr style="color: rgb(24, 233, 24);" >
+                <td><%= i %></td>
+                <td><%= accountArray[i-1]?.AccountID %></td>
+                <td><%= accountArray[i-1]?.Name %></td>
+                <td><%= accountArray[i-1]?.KYCStatus %></td>
+                <td><%= accountArray[i-1]?.HomeBranch %></td>
+            </tr>
+            <% } %>
+            
+
+            
+          
+          <% } %>
+        </table>
+      </div>
+      </section>
+    </main>
+  </body>
+</html>

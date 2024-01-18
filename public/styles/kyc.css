@@ -22,6 +22,8 @@ body {
   border-radius: 30px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
   padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 main {
@@ -38,13 +40,14 @@ main {
   pointer-events: none;
 }
 
-
 label,
 input {
   font-size: clamp(0.5rem, min(1rem, 1.5vw), 1rem);
 }
 
-
+.table-div {
+  overflow: auto;
+}
 
 .view-transactions-section {
   margin-top: 15px;

@@ -148,6 +148,24 @@ option:checked {
   margin-top: 40px;
 }
 
+.message-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  width: 79.4vw;
+  font-size: clamp(1rem, min(1.2rem, 1.5vw), 1.2rem);
+  padding: 10px;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .alert h2,
 .success h2 {
   font-size: 1rem;

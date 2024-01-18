@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&family=Ubuntu&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(43, 107, 204);
+}
+
+.main-container {
+  height: 90vh;
+  width: 90vw;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+  padding: 20px;
+}
+
+main {
+  transition: all 1s ease;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: clamp(0.5rem, min(1rem, 1.5vw), 1rem);
+}
+
+.input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+
+.predict-btn {
+  padding: 15px;
+  font-size: clamp(1rem, min(1.2rem, 1.5vw), 1.2rem);
+  background-color: rgb(43, 107, 204);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 150px;
+}
+
+.sidebar-open{
+  user-select: none;
+  pointer-events: none;
+}
+
+.amount-div,
+.category-div {
+  margin-top: 10px;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+label{
+    margin-left: 5px;
+}
+
+label,
+input {
+  display: block;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+input {
+  display: inline-block;
+  height: 35px;
+  width: clamp(2rem, 25vw, 90rem);
+  margin-top: 5px;
+  padding-left: 10px;
+  outline: none;
+  border: none;
+  background-color: lightgray;
+  border-radius:10px;
+}
+
+input::placeholder {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+select{
+  display: inline-block;
+  height: 35px;
+  width: clamp(2rem, 25vw, 90rem);
+  margin-top: 5px;
+  padding-left: 10px;
+  outline: none;
+  border: none;
+  background-color: lightgray;
+  border-radius:10px;
+}
+
+select{
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+select option{
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+option:checked{
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    
+}
+
+.trxn-submitBtn-div{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.trxnSubmit{
+    padding: 15px;
+  font-size: clamp(1rem, min(1.2rem, 1.5vw), 1.2rem);
+  background-color: rgb(43, 107, 204);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 150px;
+}
+
+@media (max-width:768px) {
+    input{
+        width: calc(80% + 50px);
+    }
+    select{
+        width: calc(80% + 50px);
+    }
+
+}

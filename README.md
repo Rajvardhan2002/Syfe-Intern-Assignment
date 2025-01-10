@@ -1,4 +1,3 @@
-Here’s the complete `README` file with all the requested details, including the note about running MongoDB locally:
 
 ---
 

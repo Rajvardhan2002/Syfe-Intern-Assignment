@@ -1,4 +1,5 @@
 
+
 ---
 
 # Personal Finance Manager
@@ -74,12 +75,36 @@ Before starting the application, ensure you have the following installed:
 
    This will start the application on [http://localhost:3000](http://localhost:3000).
 
-6. **Login Credentials for Test User:**
+---
 
-   - **Email:** `test01@gmail.com`
-   - **Password:** `123456789`
+## 6. **Login Credentials for Test User:**
 
-   Use these credentials to log in and test the application.
+- **Email:** `test01@gmail.com`
+- **Password:** `123456789`
+
+Use these credentials to log in and test the application. However, since data is stored locally, no data will be fetched automatically upon login.
+
+### **Steps to Test the Application:**
+
+1. **Login:**
+   - Use the credentials mentioned above to log in to the system.
+   
+2. **Add Categories:**
+   - In the sidebar, navigate to the "Categories" section.
+   - Add 3-4 custom categories for transactions (e.g., Food, Rent, Entertainment, etc.).
+
+3. **Add Transactions:**
+   - Next, go to the "Transactions" section in the sidebar.
+   - Add 7-8 different transactions for various months and years, ensuring they are linked to the categories you created earlier.
+
+4. **Add Income:**
+   - Finally, navigate to the "Income" section in the sidebar.
+   - Add 7-8 different income entries for various months and years.
+
+5. **Test Reports:**
+   - You can now navigate to the "Reports" section in the sidebar to test the monthly and yearly reports, which will include your transactions, income, and savings data.
+
+---
 
 ### Assumptions
 

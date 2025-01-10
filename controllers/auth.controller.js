@@ -11,34 +11,24 @@ function getSignup(req, res) {
       password: "",
       confirm: "",
       name: "",
-      address: "",
-      account: "",
-      phone: "",
     };
   }
-  // console.log(sessionData);
   res.render("auth/signup", { inputData: sessionData });
 }
 
-////form submission
 async function signup(req, res, next) {
   const enteredDataByUser = {
     email: req.body.email,
     password: req.body.password,
     confirm: req.body.confirm,
     name: req.body.name,
-    address: req.body.address,
-    account: req.body.account,
-    phone: req.body.phone,
   };
+
   if (
     !validation.userDetailsAreValid(
       req.body.email,
       req.body.password,
-      req.body.name,
-      req.body.address,
-      req.body.account,
-      req.body.phone
+      req.body.name
     ) ||
     !validation.passwordMatches(req.body.password, req.body.confirm)
   ) {
@@ -55,14 +45,7 @@ async function signup(req, res, next) {
     return;
   }
 
-  const user = new User(
-    req.body.email,
-    req.body.password,
-    req.body.name,
-    req.body.account,
-    req.body.address,
-    req.body.phone
-  );
+  const user = new User(req.body.email, req.body.password, req.body.name);
 
   try {
     const existsAlready = await user.existsAlready();
@@ -87,7 +70,6 @@ async function signup(req, res, next) {
   res.redirect("/login");
 }
 
-////shows login page
 function getLogin(req, res) {
   let sessionData = sessionFlash.getSessionData(req);
   if (!sessionData) {
@@ -99,16 +81,17 @@ function getLogin(req, res) {
   res.render("auth/login", { inputData: sessionData });
 }
 
-///////////////////////////////////////////handling login form post req
 async function login(req, res, next) {
   const user = new User(req.body.email, req.body.password);
   let existingUser;
+
   try {
     existingUser = await user.getUserWithSameEmail();
   } catch (error) {
     next(error);
     return;
   }
+
   const sessionErrorData = {
     errorMessage: "Invalid credentials! Please check again.",
     email: user.email,
@@ -121,6 +104,7 @@ async function login(req, res, next) {
     });
     return;
   }
+
   const passwordMatches = await user.hasMatchingPassword(existingUser.password);
   if (!passwordMatches) {
     sessionFlash.flashDataToSession(req, sessionErrorData, function () {
@@ -128,21 +112,21 @@ async function login(req, res, next) {
     });
     return;
   }
+
   authUtil.createUserSession(req, existingUser, function () {
-    res.redirect("/details");
+    res.redirect("/transactions");
   });
 }
 
-////////handling logout post req
 function logout(req, res) {
   authUtil.destroyUserAuthSession(req);
   res.redirect("/login");
 }
 
 module.exports = {
-  getSignup: getSignup,
-  signup: signup,
-  getLogin: getLogin,
-  login: login,
-  logout: logout,
+  getSignup,
+  signup,
+  getLogin,
+  login,
+  logout,
 };

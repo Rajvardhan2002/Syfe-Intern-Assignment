@@ -3,13 +3,10 @@ const bcrypt = require("bcryptjs");
 const db = require("../data/database");
 
 class User {
-  constructor(email, password, fullname, account, address, phone) {
+  constructor(email, password, fullname) {
     this.email = email;
     this.password = password;
     this.fullname = fullname;
-    this.account = account;
-    this.phone = phone;
-    this.address = address;
   }
 
   getUserWithSameEmail() {
@@ -35,9 +32,6 @@ class User {
       email: this.email,
       password: hashedPassword,
       fullname: this.fullname,
-      accountNumber: this.account,
-      phone: this.phone,
-      address: this.address,
     });
   }
 }

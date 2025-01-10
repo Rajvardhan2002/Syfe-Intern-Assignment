@@ -1,0 +1,38 @@
+<%- include("../includes/head", { pageTitle: "Home" }) %>
+<link rel="stylesheet" href="/styles/details.css">
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container">
+        <!-- Categories Table -->
+        <section class="categories-section">
+            <h1 class="categories-section-heading">Your Categories</h1>
+            <p>Please click on any row to view fxns</p>
+            <div class="table-div">
+                <table class="detail-table">
+                    <thead>
+                        <tr>
+                            <th>Sr.No.</th>
+                            <th>Category Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach((category, index) => { %>
+                            <tr onclick="location.href='/category/<%= category._id %>'" style="cursor: pointer;">
+                                <td><%= index + 1 %></td>
+                                <td><%= category.name %></td>
+                                <td><%= category.description || 'N/A' %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="add-category-btn">
+                <a href="/add-category">Add New Category</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -159,8 +159,8 @@ main {
   text-align: center;
 }
 
-.table-div{
-  overflow: auto;  
+.table-div {
+  overflow: auto;
 }
 
 .detail-table {
@@ -225,4 +225,113 @@ th {
   .change-password-btn {
     margin-bottom: 35px;
   }
+}
+/* General Button Styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.category-table th,
+.category-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.category-table th {
+  background-color: #f4f4f4;
+}
+
+.category-table tr:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+/* details.css */
+
+/* Container for the main section */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Section for transaction details */
+.transaction-details-section {
+  width: 100%;
+}
+
+/* Heading for the transaction details */
+.transaction-details-section h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Styling for individual details */
+.transaction-details-section p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Label styling */
+.transaction-details-section strong {
+  font-weight: bold;
+}
+
+/* Button to delete or edit transaction */
+.transaction-details-section a,
+.transaction-details-section form button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.transaction-details-section form button {
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+.transaction-details-section form button:hover {
+  background-color: #e41f1f;
+}
+
+.transaction-details-section a {
+  background-color: #4caf50;
+}
+
+.transaction-details-section a:hover {
+  background-color: #45a049;
 }

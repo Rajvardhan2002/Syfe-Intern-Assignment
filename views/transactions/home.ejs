@@ -1,0 +1,58 @@
+<%- include("../includes/head", { pageTitle: "Transactions Home" }) %>
+<link rel="stylesheet" href="/styles/transactions.css">
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container">
+        <section class="transactions-section">
+            <h1 class="transactions-section-heading">Your Transactions</h1>
+            
+            <!-- Updated View Category button -->
+            <div class="view-category-btn">
+                <a href="/categories" class="btn">View All Categories</a>
+            </div>
+
+            <!-- Button to go to the Add New Transaction page -->
+            <div class="add-new-transaction-btn">
+                <a href="/transactions/add" class="btn">Add New Transaction</a>
+            </div>
+
+            <p>click on any row to view functionalities</p>
+
+            <% categories.forEach((category) => { %>
+                <div class="category-transaction">
+                    <h2><%= category.name %></h2>
+
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>Sr.No.</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (categorizedTransactions[category.name] && categorizedTransactions[category.name].length > 0) { %>
+                                <% categorizedTransactions[category.name].forEach((transaction, idx) => { %>
+                                    <tr onclick="location.href='/transactions/<%= transaction._id %>'" style="cursor: pointer;">
+                                        <td><%= idx + 1 %></td>
+                                        <td><%= transaction.amount %></td>
+                                        <td><%= new Date(transaction.date).toLocaleDateString() %></td>
+                                        <td><%= transaction.description || 'N/A' %></td>
+                                    </tr>
+                                <% }); %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="4">No transactions available for this category.</td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            <% }); %>
+        </section>
+    </main>
+</body>
+</html>

@@ -29,14 +29,18 @@ app.use(checkAuthStatusMiddleware); //checking whether user is login or not
 
 const homeRoutes = require("./routes/home.routes");
 const authRoutes = require("./routes/auth.routes");
-const mlRoutes = require("./routes/ml_model.routes");
-const kycRoutes = require("./routes/kyc.routes");
+const transactionRoutes = require("./routes/transactions.routes");
+const savingGoalsRoutes = require("./routes/savingsGoals.routes");
+const incomeRoutes = require("./routes/income.routes");
+const reportsRoutes = require("./routes/reports.routes");
 
 app.use(authRoutes);
 app.use(protectRoutesMiddleware);
 app.use(homeRoutes);
-app.use(mlRoutes);
-app.use(kycRoutes);
+app.use("/transactions", transactionRoutes);
+app.use("/savingGoals", savingGoalsRoutes);
+app.use("/income", incomeRoutes);
+app.use("/reports", reportsRoutes);
 
 app.use(errorHandlerMiddleware);
 

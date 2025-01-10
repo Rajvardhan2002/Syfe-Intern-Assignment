@@ -1,0 +1,27 @@
+<%- include("../includes/head", { pageTitle: "Add Savings Goal" }) %>
+<link rel="stylesheet" href="/styles/savingGoals.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="add-goal-section">
+      <h1>Add New Savings Goal</h1>
+      <% if (error) { %>
+      <div class="error"><%= error %></div>
+      <% } %>
+      <form action="/savingGoals/add" method="POST">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <input type="text" name="name" placeholder="Goal Name" required /><br />
+        <input
+          type="number"
+          name="targetAmount"
+          placeholder="Target Amount"
+          required
+        /><br />
+        <input type="date" name="targetDate" required /><br />
+        <button type="submit" class="btn btn-primary">Create Goal</button>
+      </form>
+    </section>
+  </main>
+</body>

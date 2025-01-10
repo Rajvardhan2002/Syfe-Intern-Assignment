@@ -1,0 +1,19 @@
+<%- include("../includes/head", { pageTitle: "Category Details" }) %>
+<link rel="stylesheet" href="/styles/details.css">
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container">
+        <section class="category-details-section">
+            <h1><%= category.name %> Details</h1>
+            <p><strong>Description:</strong> <%= category.description || 'No description available' %></p>
+            <a href="/edit-category/<%= category._id %>">Edit Category</a>
+            <form action="/delete-category/<%= category._id %>" method="POST">
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <button type="submit" class="delete-btn">Delete Category</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

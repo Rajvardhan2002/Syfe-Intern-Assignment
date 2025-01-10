@@ -1,0 +1,65 @@
+<%- include("../includes/head", { pageTitle: "Monthly Income" }) %>
+<link rel="stylesheet" href="/styles/income.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="income-section">
+      <h1>Track Monthly Income</h1>
+      <% if (error) { %>
+      <div class="error"><%= error %></div>
+      <% } %>
+      <form action="/income" method="POST" class="add-income-form">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+        <label for="month">Month:</label>
+        <select name="month" id="month" required>
+          <% ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"].forEach(m =>
+          { %>
+          <option value="<%= m %>"><%= m %></option>
+          <% }) %>
+        </select>
+        <label for="year">Year:</label>
+        <input type="number" name="year" placeholder="Year" required />
+        <label for="amount">Income Amount:</label>
+        <input type="number" name="amount" placeholder="Amount" required />
+        <button type="submit" class="btn btn-primary">Add/Update Income</button>
+      </form>
+
+      <% if (allIncomes.length > 0) { %>
+      <h2>Your Income Records:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allIncomes.forEach(inc => { %>
+          <tr>
+            <td><%= inc.month %></td>
+            <td><%= inc.year %></td>
+            <td>$<%= inc.amount %></td>
+            <td>
+              <form action="/income/<%= inc._id %>/delete" method="POST">
+                <input
+                  type="hidden"
+                  name="_csrf"
+                  value="<%= locals.csrfToken %>"
+                />
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p>No income records found. Start by adding a new income.</p>
+      <% } %>
+    </section>
+  </main>
+</body>

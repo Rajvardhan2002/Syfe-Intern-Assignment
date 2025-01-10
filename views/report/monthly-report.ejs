@@ -1,0 +1,50 @@
+<%- include("../includes/head", { pageTitle: "Monthly Report" }) %>
+<link rel="stylesheet" href="/styles/reports.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="monthly-report-section">
+      <h1>
+        Monthly Report for <%= ["January", "February", "March", "April", "May",
+        "June", "July", "August", "September", "October", "November",
+        "December"][month - 1] %> <%= year %>
+      </h1>
+
+      <div>
+        <canvas id="monthlyChart"></canvas>
+      </div>
+
+      <div class="report-summary">
+        <p><strong>Income:</strong> $<%= report.income %></p>
+        <p><strong>Expenses:</strong> $<%= report.transactions %></p>
+        <p><strong>Balance:</strong> $<%= report.balance %></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('monthlyChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Income', 'Expenses', 'Balance'],
+        datasets: [{
+          label: 'Monthly Report',
+          data: [<%= report.income %>, <%= report.transactions %>, <%= report.balance %>],
+          backgroundColor: ['#4caf50', '#f44336', '#2196f3'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+        },
+      },
+    });
+  </script>
+</body>

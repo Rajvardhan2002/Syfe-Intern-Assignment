@@ -7,28 +7,21 @@ function isEmpty(value) {
   ////if we don't get value that means is empty and fxn will return true;
 }
 
-function userCredentialsAreValid(email,password){
-    return  email &&
-    email.includes("@") &&
-    password &&
-    password.trim().length >= 6 
-}
-
-function userDetailsAreValid(email, password, name, address, account, phone) {
+function userCredentialsAreValid(email, password) {
   return (
-    userCredentialsAreValid(email,password) && 
-    !isEmpty(name) &&
-    !isEmpty(address) &&
-    !isEmpty(account) &&
-    !isEmpty(phone)
+    email && email.includes("@") && password && password.trim().length >= 6
   );
 }
 
-function passwordMatches(password,confirmPassword){
-    return password === confirmPassword;
+function userDetailsAreValid(email, password, name, phone) {
+  return userCredentialsAreValid(email, password) && !isEmpty(name);
+}
+
+function passwordMatches(password, confirmPassword) {
+  return password === confirmPassword;
 }
 
 module.exports = {
   userDetailsAreValid: userDetailsAreValid,
-  passwordMatches:passwordMatches,
+  passwordMatches: passwordMatches,
 };

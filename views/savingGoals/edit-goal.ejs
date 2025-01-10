@@ -1,0 +1,46 @@
+<%- include("../includes/head", { pageTitle: "Edit Savings Goal" }) %>
+<link rel="stylesheet" href="/styles/savingGoals.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="edit-goal-section">
+      <h1>Edit Savings Goal</h1>
+
+      <!-- Form to edit goal -->
+      <form action="/savingGoals/edit/<%= goal._id %>" method="POST">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+
+        <!-- Goal Name Field -->
+        <input
+          type="text"
+          name="name"
+          value="<%= goal.name %>"
+          placeholder="Goal Name"
+          required
+        /><br />
+
+        <!-- Target Amount Field -->
+        <input
+          type="number"
+          name="targetAmount"
+          value="<%= goal.targetAmount %>"
+          placeholder="Target Amount"
+          required
+        /><br />
+
+        <!-- Target Date Field -->
+        <input
+          type="date"
+          name="targetDate"
+          value="<%= new Date(goal.targetDate).toISOString().split('T')[0] %>"
+          required
+        /><br />
+
+        <!-- Update Button -->
+        <button type="submit" class="btn btn-primary">Update Goal</button>
+      </form>
+    </section>
+  </main>
+</body>

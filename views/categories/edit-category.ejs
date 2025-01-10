@@ -1,0 +1,30 @@
+<%- include("../includes/head", { pageTitle: "Edit Category" }) %>
+<link rel="stylesheet" href="/styles/details.css">
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container">
+        <section class="edit-category-section">
+            <h1>Edit Category</h1>
+            <form action="/edit-category/<%= category._id %>" method="POST">
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <div class="form-group">
+                    <label for="name">Category Name</label>
+                    <input type="text" id="name" name="name" value="<%= category.name %>" required />
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"><%= category.description %></textarea>
+                </div>
+                <% if (errorMessage) { %>
+                    <div class="error-message">
+                        <p><%= errorMessage %></p>
+                    </div>
+                <% } %>
+                <button type="submit">Update Category</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

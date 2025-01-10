@@ -1,0 +1,83 @@
+<%- include("../includes/head", { pageTitle: "Reports" }) %>
+<link rel="stylesheet" href="/styles/reports.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="reports-section">
+      <h1>Select Report Type</h1>
+
+      <!-- Monthly Report Form -->
+      <form id="monthlyForm">
+        <label for="month">Select Month:</label>
+        <select id="month" name="month" required>
+          <option value="" disabled selected>Select a month</option>
+          <% ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November",
+          "December"].forEach((month, idx) => { %>
+          <option value="<%= idx + 1 %>"><%= month %></option>
+          <% }) %>
+        </select>
+
+        <label for="year">Select Year:</label>
+        <input
+          type="number"
+          id="monthlyYear"
+          name="year"
+          value="<%= new Date().getFullYear() %>"
+          min="2000"
+          max="2100"
+          required
+        />
+        <button type="button" id="generateMonthlyReport">
+          Generate Monthly Report
+        </button>
+      </form>
+
+      <!-- Yearly Report Form -->
+      <form id="yearlyForm">
+        <label for="year">Select Year:</label>
+        <input
+          type="number"
+          id="yearlyYear"
+          name="year"
+          value="<%= new Date().getFullYear() %>"
+          min="2000"
+          max="2100"
+          required
+        />
+        <button type="button" id="generateYearlyReport">
+          Generate Yearly Report
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Redirect to backend route for monthly report
+    document
+      .getElementById("generateMonthlyReport")
+      .addEventListener("click", () => {
+        const month = document.getElementById("month").value;
+        const year = document.getElementById("monthlyYear").value;
+        if (month && year) {
+          window.location.href = `/reports/monthly/${month}/${year}`;
+        } else {
+          alert("Please select both month and year.");
+        }
+      });
+
+    // Redirect to backend route for yearly report
+    document
+      .getElementById("generateYearlyReport")
+      .addEventListener("click", () => {
+        const year = document.getElementById("yearlyYear").value;
+        if (year) {
+          window.location.href = `/reports/yearly/${year}`;
+        } else {
+          alert("Please select a year.");
+        }
+      });
+  </script>
+</body>

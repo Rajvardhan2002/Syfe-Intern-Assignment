@@ -1,0 +1,79 @@
+<%- include("../includes/head", { pageTitle: "Yearly Report" }) %>
+<link rel="stylesheet" href="/styles/reports.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="yearly-report-section">
+      <h1>Yearly Report for <%= year %></h1>
+
+      <div>
+        <canvas id="yearlyChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    window.onload = function () {
+      // Ensure data is correctly passed and visible
+      try {
+        const months = <%- JSON.stringify(months) %>;
+        const incomeData = <%- JSON.stringify(incomeData) %>;
+        const expensesData = <%- JSON.stringify(expensesData) %>;
+        const balanceData = <%- JSON.stringify(balanceData) %>;
+
+
+        console.log("Months:", months);
+        console.log("Income Data:", incomeData);
+        console.log("Expenses Data:", expensesData);
+        console.log("Balance Data:", balanceData);
+
+        // Initialize the chart after ensuring data is available
+        const ctx = document.getElementById("yearlyChart").getContext("2d");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: months, // Ensure months array is passed correctly
+            datasets: [
+              {
+                label: "Income",
+                data: incomeData, // Ensure incomeData is an array
+                backgroundColor: "#4caf50",
+              },
+              {
+                label: "Expenses",
+                data: expensesData, // Ensure expensesData is an array
+                backgroundColor: "#f44336",
+              },
+              {
+                label: "Balance",
+                data: balanceData, // Ensure balanceData is an array
+                backgroundColor: "#2196f3",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: "top",
+              },
+            },
+            scales: {
+              x: {
+                title: { display: true, text: "Month" },
+              },
+              y: {
+                title: { display: true, text: "Amount" },
+              },
+            },
+          },
+        });
+      } catch (error) {
+        console.error("Error rendering chart data:", error);
+      }
+    };
+  </script>
+</body>

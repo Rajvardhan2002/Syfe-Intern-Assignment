@@ -1,0 +1,48 @@
+<%- include("../includes/head", { pageTitle: "Savings Goals Dashboard" }) %>
+<link rel="stylesheet" href="/styles/savingGoals.css" />
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+  <%- include("../includes/sidebar") %>
+  <main class="main-container">
+    <section class="goals-section">
+      <h1>Your Savings Goals</h1>
+
+      <!-- Month/Year Selector -->
+      <div class="income-selector">
+        <form action="/savingGoals/goals-for-month" method="GET">
+          <div class="selector-container">
+            <label for="month">Select Month:</label>
+            <select name="month" id="month" required>
+              <option value="1" <%= month === '1' ? 'selected' : '' %>>January</option>
+              <option value="2" <%= month === '2' ? 'selected' : '' %>>February</option>
+              <option value="3" <%= month === '3' ? 'selected' : '' %>>March</option>
+              <option value="4" <%= month === '4' ? 'selected' : '' %>>April</option>
+              <option value="5" <%= month === '5' ? 'selected' : '' %>>May</option>
+              <option value="6" <%= month === '6' ? 'selected' : '' %>>June</option>
+              <option value="7" <%= month === '7' ? 'selected' : '' %>>July</option>
+              <option value="8" <%= month === '8' ? 'selected' : '' %>>August</option>
+              <option value="9" <%= month === '9' ? 'selected' : '' %>>September</option>
+              <option value="10" <%= month === '10' ? 'selected' : '' %>>October</option>
+              <option value="11" <%= month === '11' ? 'selected' : '' %>>November</option>
+              <option value="12" <%= month === '12' ? 'selected' : '' %>>December</option>
+            </select>
+
+            <label for="year">Select Year:</label>
+            <select name="year" id="year" required>
+              <option value="2025" <%= year === '2025' ? 'selected' : '' %>>2025</option>
+              <option value="2024" <%= year === '2024' ? 'selected' : '' %>>2024</option>
+              <option value="2023" <%= year === '2023' ? 'selected' : '' %>>2023</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn">View Goals for This Month</button>
+        </form>
+      </div>
+
+      <div class="goals-container">
+        <!-- Existing goals list here -->
+      </div>
+    </section>
+  </main>
+</body>

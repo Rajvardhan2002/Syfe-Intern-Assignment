@@ -1,0 +1,25 @@
+<%- include("../includes/head", { pageTitle: "Add New Transaction" }) %>
+<link rel="stylesheet" href="/styles/transactions.css">
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container">
+        <section class="add-transaction-section">
+            <h1>Add New Transaction</h1>
+            <form id="add-transaction-form" method="POST" action="/transactions/add">
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+                <input type="number" id="amount" name="amount" placeholder="Amount" required><br>
+                <input type="date" id="date" name="date" required><br>
+                <select id="category" name="categoryId" required>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category._id %>"><%= category.name %></option>
+                    <% }); %>
+                </select><br>
+                <textarea id="description" name="description" placeholder="Description (Optional)"></textarea><br>
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

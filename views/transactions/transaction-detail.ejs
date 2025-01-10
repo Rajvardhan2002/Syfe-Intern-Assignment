@@ -1,0 +1,22 @@
+<%- include("../includes/head", { pageTitle: transaction.description || 'Transaction Details' }) %>
+<link rel="stylesheet" href="/styles/details.css">
+<link rel="stylesheet" href="/styles/sidebar.css" />
+
+<body>
+    <%- include("../includes/sidebar") %>
+    <main class="main-container">
+        <section class="transaction-details-section">
+            <h1><%= transaction.description || 'Transaction Details' %></h1>
+            <p><strong>Amount:</strong> <%= transaction.amount %></p>
+            <p><strong>Date:</strong> <%= new Date(transaction.date).toLocaleDateString() %></p>
+            <p><strong>Category:</strong> <%= category_name %></p>
+            <p><strong>Description:</strong> <%= transaction.description || 'No description available' %></p>
+            <a href="/transactions/<%= transaction._id %>/edit">Edit Transaction</a>
+            <form action="/transactions/<%= transaction._id %>/delete" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="delete-btn">Delete Transaction</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
